@@ -6,7 +6,7 @@ import java.util.Collections;
 public class SetPuzzle {
 
     private static class Card implements Comparable<Card> {
-
+        int index;
         PuzzleMapping.Color c;
         PuzzleMapping.Number n;
         PuzzleMapping.Symbol s;
@@ -37,6 +37,12 @@ public class SetPuzzle {
             deck[i].s = symbols[(i / 3) % 3];
             deck[i].f = fillmodes[i % 3];
         }
+//        deck = new Card[12];
+//        PuzzleMapping.Color[] colors = PuzzleMapping.Color.values();
+//        for(Card i: deck){
+//            deck[i] = new Card();
+//            deck[i].c = colors
+//        }
         findSets(12);
     }
 
