@@ -7,24 +7,23 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
+import puzzlegame.pages.CongratulationsPage;
 import puzzlegame.pages.HomePage;
 
-
-import java.lang.reflect.Array;
-import java.util.ArrayList;
-import java.util.List;
-
-public class SampleTestNgTest extends TestNgTestBase {
+public class SetGameTest extends TestNgTestBase {
 
   private HomePage homepage;
+  private CongratulationsPage congratulationsPage;
 
   @BeforeMethod
   public void initPageObjects() {
     homepage = PageFactory.initElements(driver, HomePage.class);
+    congratulationsPage = PageFactory.initElements(driver, CongratulationsPage.class);
   }
 
   public void openUrl(){
     driver.get(baseUrl);
+    driver.manage().window().fullscreen();
   }
 
   @Test
@@ -40,15 +39,11 @@ public class SampleTestNgTest extends TestNgTestBase {
   }
 
   @Test
-  public void testMapping(){
+  public void testMapping() throws Exception {
     openUrl();
-    //System.out.println(homepage.getCards());
-    System.out.println(homepage.getImgNumber());
-//    List elements = new ArrayList();
-//    elements.add(0,1);
-//    elements.add(0,2);
-//
-//    Combination.combination(elements, 3);
-
+    homepage.findSet(12);
+    Assert.assertTrue(congratulationsPage.getCongratulationMsg());
   }
+
+
 }

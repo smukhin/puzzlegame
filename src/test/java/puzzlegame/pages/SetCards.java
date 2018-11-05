@@ -154,11 +154,6 @@ public class SetCards implements Comparable<SetCards>{
 
     }
 
-    public List<Cards> getCard() throws Exception {
-
-        return null;
-    }
-
     @Override
     public String toString(){
         return String.format("[Card: %s, %s, %s, %s]", c, n, s, f);
