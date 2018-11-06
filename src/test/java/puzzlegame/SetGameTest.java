@@ -33,12 +33,6 @@ public class SetGameTest extends TestNgTestBase {
   }
 
   @Test
-  public void testGameData(){
-    openUrl();
-    Assert.assertEquals("Wednesday, October 31, 2018", homepage.getCurrentGameDate());
-  }
-
-  @Test
   public void testMapping() throws Exception {
     openUrl();
     homepage.findSet(12);
